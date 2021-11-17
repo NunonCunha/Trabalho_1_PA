@@ -7,12 +7,12 @@ Alguns exemplares podem ser baixados gratuitamente do Projeto Gutenberg: https:/
 
 '''
 
-#TODO:1) O programa deve obter texto de um ficheiro;
-    #- O nome do ficheiro deve ser dado pelo usuário.
+#DONE:1) O programa deve obter texto de um ficheiro;
+    #DONE:1.1 O nome do ficheiro deve ser dado pelo usuário.
 #TODO:2) O programa deve separar as palavras de modo a remover elementos de pontuação (pontos, vírgulas, exclamações, interrogações, travessões, ...);
-    #- A separação das palavras não deve ser case-sensitive (exemplo: 'casa' e 'Casa' devem ser tratadas como iguais).
-    #- Não há necessidade de separar radicais ou remover prefixos ou sufixos das palavras (exemplo: 'casa' e 'casas' pode ser consideradas como palavras diferentes).
-    #- Algumas facilidades podem ser assumidas, desde que devidamente indicadas por comentário no código ou alguma outra documentação do trabalho. Por exemplo, o(a) aluno(a) pode manter o texto de identificação do projeto no início e fim do ficheiro, mesmo que este texto não faça parte do texto do autor (assume-se, a princípio, que isto não trará graves problemas para a contagem de palavras de modo geral).
+    #TODO:2.1 A separação das palavras não deve ser case-sensitive (exemplo: 'casa' e 'Casa' devem ser tratadas como iguais).
+    #TODO:2.2 Não há necessidade de separar radicais ou remover prefixos ou sufixos das palavras (exemplo: 'casa' e 'casas' pode ser consideradas como palavras diferentes).
+    #Algumas facilidades podem ser assumidas, desde que devidamente indicadas por comentário no código ou alguma outra documentação do trabalho. Por exemplo, o(a) aluno(a) pode manter o texto de identificação do projeto no início e fim do ficheiro, mesmo que este texto não faça parte do texto do autor (assume-se, a princípio, que isto não trará graves problemas para a contagem de palavras de modo geral).
 #TODO:3) Como saída do programa, deve ser gerado um novo ficheiro contendo cada palavra e seu respectivo número de ocorrências (ou percentual de ocorrência).
 #TODO:4) Uma outra saída esperada do programa é a apresentação (print no console) das 20 palavras mais utilizadas no texto.
 #TODO:5) As partes importantes do código devem ser comentadas (descrever o que está sendo feito).
@@ -33,40 +33,51 @@ https://www.gutenberg.org/files/1661/1661-0.txt
 https://www.gutenberg.org/cache/epub/4078/pg4078.txt
 
 '''
+#import para utilizar a função encoding para utilização de caracteres especiais
+import codecs
 
-
+#TODO:1
 #função para obter o texto do ficheiro text.txt
 def get_text():
 
     #Este Bloco vai tentar abrir o ficheiro, no caso de não conseguir devolve um erro
     try:
-        file = open("text.txt", 'r')
+        # o encoding permite ler texto com caracteres especiais
+        # descomentar no final  file = open(f"{path}", 'r',encoding='utf-8')
+        file = open("text.txt", 'r',encoding='utf-8')
         print("Ficheiro aberto com sucesso")
     except:
         print("Erro, verifique o ficheiro.")
 
+
     #leitura do ficheiro
-    # TODO: guardar as linhas lidas numa lista
-    text = file.read()
+    text = file.read().lower()
 
-    for linha in text:
-        print(linha, end="")
+    #Loop para percorrer o ficheiro e apresentar o seu conteúdo
+    for line in text:
+        print(line,end='')
 
 
+    #Fecha a ligação ao ficheiro
     file.close()
+
+#TODO:2
+def delete_caracteres():
+    
     pass
 
-
-def delet_caracteres():
-    pass
-
+#TODO:3
 def result_file():
     pass
 
+#TODO:4
 def result_print():
     pass
 
 
+# descomentar no final  ficheiro = input("Introduza o caminho e o nome do ficheiro (exemplo: c:\\teste.txt):")
 get_text()
+
+
 
 
