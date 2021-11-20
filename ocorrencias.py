@@ -36,30 +36,32 @@ https://www.gutenberg.org/cache/epub/4078/pg4078.txt
 #import para utilizar a função encoding para utilização de caracteres especiais
 import codecs
 
+path = input("\nIntroduza o caminho e o nome do ficheiro (exemplo: c:\\teste.txt):\n")
+path = 'text.txt'
+
+# o encoding permite ler texto com caracteres especiais
+file = open(f"{path}", 'r',encoding='utf-8')
+#leitura do ficheiro para uma lista
+texto = file.read().lower()
+
+
 #TODO:1
 #função para obter o texto do ficheiro text.txt
 def get_text():
-
-    #Este Bloco vai tentar abrir o ficheiro, no caso de não conseguir devolve um erro
-    try:
-        # o encoding permite ler texto com caracteres especiais
-        # descomentar no final  file = open(f"{path}", 'r',encoding='utf-8')
-        file = open("text.txt", 'r',encoding='utf-8')
-        print("Ficheiro aberto com sucesso")
-    except:
-        print("Erro, verifique o ficheiro.")
+    pass
 
 
-    #leitura do ficheiro
-    text = file.read().lower()
+def save_text(text):
 
-    #Loop para percorrer o ficheiro e apresentar o seu conteúdo
-    for line in text:
-        print(line,end='')
+    new_file = open("newTextFile.txt","w")   
+
+    new_file.write(text)   
 
 
-    #Fecha a ligação ao ficheiro
-    file.close()
+def get_words_count():
+
+    pass
+  
 
 #TODO:2
 def delete_caracteres():
@@ -75,9 +77,10 @@ def result_print():
     pass
 
 
-# descomentar no final  ficheiro = input("Introduza o caminho e o nome do ficheiro (exemplo: c:\\teste.txt):")
-get_text()
+
+save_text(texto)
 
 
-
+#Fecha a ligação ao ficheiro
+file.close()
 
