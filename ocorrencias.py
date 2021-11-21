@@ -36,16 +36,24 @@ https://www.gutenberg.org/cache/epub/4078/pg4078.txt
 #import para utilizar a função encoding para utilização de caracteres especiais
 import codecs
 
+print(f"{'***********************************':>5}")
+print(f"{'* Trabalho 1 Programação Avançada *':>5}")
+print(f"{'* Nome: Nuno Cunha                *':>5}")
+print(f"{'* Número: 20202457                *':>5}")
+print(f"{'* Turma: G.S.C                    *':>5}")
+print(f"{'***********************************':>5}")
+print("\t")
+
 #TODO: 1.1
 path = input("\nIntroduza o caminho e o nome do ficheiro (exemplo: c:\\teste.txt):\n")
-path = 'text.txt'
+path = 'pg34719.txt'
 
 # o encoding permite ler texto com caracteres especiais
 file = open(f"{path}", 'r',encoding='utf-8')
 
 #TODO: 1
 #leitura do ficheiro para uma lista
-texto = file.read()
+texto = file.read().lower()
 
 #Cria uma lista com caracteres
 pont_list_chr=[]
@@ -61,6 +69,7 @@ chr_list(58,65)
 chr_list(91,97)
 chr_list(123,127)
 
+#TODO:2.1/2.2
 #função para remover todos os caracteres especiais
 def remove_char(text):
     
@@ -69,6 +78,7 @@ def remove_char(text):
     return text
 
 texto = remove_char(texto)
+
 
 def convert_list(text):
 
@@ -114,18 +124,28 @@ def order_score(dic):
 
          
 
-
+#TODO:3
 def save_text(dic):
 
-    new_file = open("newTextFile.txt","w")   
+    new_file = open("newTextFile.txt","w", encoding='utf-8')   
 
     dic = sorted(dic.items(), key=lambda x: x[1], reverse=True)
 
-    # ciclo para percorrer o dicionario, mostra a palavras e o valor, das 20 mais utilizadas
-    for i in dic[:20]:
-	    new_file.write(i[0], i[1])
+    for i in dic:
+        texto = str(i[0]) + "-" + str(i[1]) + "\n"
+
+        new_file.writelines(texto)
 
     # new_file.write(text) 
+
+
+
+
+
+
+
+
+
 
 
 save_text(dicionario)
