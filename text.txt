@@ -1,7 +1,3 @@
-esta é uma linha de texto 
-
-ESTA e uma segunda linha de texto
-segunda segunda
-linha
-linha
-
+esta é uma linha de código
+esta é outra linha de código
+e esta não e nada
