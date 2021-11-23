@@ -1,6 +1,9 @@
 #Biblioteca para utilizar a função encoding para utilização de caracteres especiais no ficheiro
 import codecs
 
+#Biblioteca para trabalhar com datas e horas
+import datetime
+
 print("***********************************")
 print("* Trabalho 1 Programação Avançada *")
 print("* Nome: Nuno Cunha                *")
@@ -39,11 +42,11 @@ else:
     print("\nOpção inválida! O programa vai terminar")
     exit()
 
-# O encoding permite ler texto com caracteres especiais
+#Abertura do ficheiro
 try:
     file = open(f"{path}", 'r',encoding='utf-8')
 except:
-    print("\nErro ao abrir o ficheiro. Oprograma vai terminar")
+    print("\nErro ao abrir o ficheiro. O programa vai terminar")
     exit()
 
 #leitura do ficheiro para uma lista
@@ -76,6 +79,7 @@ def remove_char(text):
 texto = remove_char(texto)
 
 #Função para converter a String sem os caracteres especiais em lista
+#A função strip() remove os espaços no inicio e fim da string
 def convert_list(text):
     for line in text:
         line = line.strip()
@@ -103,7 +107,8 @@ dicionario = get_words_count(lista_final)
 def order_score(dic):
     '''ordenação do dicionário com função lambda em que a comparação é feita com o valor x[1]
     utilizamos o reverse=True para alterar a ordem do sorted()
-    referencia para a função lambda. (https://towardsdatascience.com/two-simple-method-to-sort-a-python-dictionary-a7907c266dba)'''
+    referencia para a função lambda. (https://docs.python.org/3/reference/expressions.html#lambda) 
+    (https://towardsdatascience.com/two-simple-method-to-sort-a-python-dictionary-a7907c266dba)'''
     dic = sorted(dic.items(), key=lambda x: x[1], reverse=True)
 
     # Ciclo para percorrer o dicionario, mostra a palavras e o valor, das 20 mais utilizadas
@@ -112,9 +117,9 @@ def order_score(dic):
          
 #Função para gravar um ficheiro com o resultado das ocorrências
 def save_text(dic):
-    new_text_file = "Output\\ocorrencias.txt"
-    #TODO:validar se o ficheiro já existe
-    #Método que permite controlar se a execução foi realizada com sucesso ou não, caso não seja possivel abrir o ficheiro é devolvida uma mensagem
+    date = datetime.date.today()
+    new_text_file = f"Output\\ocorrencias_{str(date)}.txt"
+    #Permite controlar se a execução foi realizada com sucesso ou não, caso não seja possivel abrir o ficheiro é devolvida uma mensagem
     try:
         new_file = open(f"{new_text_file}","w", encoding='utf-8')   
         dic = sorted(dic.items(), key=lambda x: x[1], reverse=True)
@@ -122,7 +127,7 @@ def save_text(dic):
             texto = str(i[0]) + "-" + str(i[1]) + "\n"
             new_file.writelines(texto)
         new_file.close()
-        print("\nFicheiro Guardado com exito. Verifique a lista completa em {}".format(new_text_file))
+        print("\nFicheiro Guardado com exito. Verifique a lista completa em {}\n1".format(new_text_file))
     except:
         print("\nErro ao Gravar o ficheiro")
         exit()
