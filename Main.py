@@ -123,7 +123,7 @@ print("* Nome: Nuno Cunha                *")
 print("* Número: 20202457                *")
 print("* Turma: G.S.C                    *")
 print("***********************************")
-# print("\n")
+print("\n")
 
 print("****************************************************************")
 print("* 1 - Noites de Cintra, by Alberto Pimentel                    *")
@@ -150,6 +150,7 @@ while True:
     elif option == '3':
         path = "Livros\pg1661-0.txt"
         main(path)
+        #Função que para a execução do programa
         break
     elif option == '4':
         path = "Livros\pg4078.txt"
@@ -161,7 +162,7 @@ while True:
         break
     elif option == '6':
         print("\nAté Breve")
-        #Função que para a execução do programa
+        #Função que termina a execução do programa
         exit()        
     else:
         print("\nOpção inválida!") 
