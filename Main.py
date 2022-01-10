@@ -1,6 +1,5 @@
 #Biblioteca para utilizar a função encoding para utilização de caracteres especiais no ficheiro
 import codecs
-
 #Biblioteca para trabalhar com datas e horas
 import datetime
 
